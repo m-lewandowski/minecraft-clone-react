@@ -2,6 +2,9 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    fontFamily: {
+      display: "'Press Start 2P', sans-serif",
+    },
     extend: {},
   },
   plugins: [],
