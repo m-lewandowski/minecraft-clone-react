@@ -4,6 +4,7 @@ import Sky from "components/Sky";
 import Ground from "components/Ground";
 import Player from "components/Player";
 import Camera from "components/Camera";
+import Blocks from "components/Blocks";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Camera />
         <Physics>
           <Player />
+          <Blocks />
           <Ground />
         </Physics>
       </Canvas>

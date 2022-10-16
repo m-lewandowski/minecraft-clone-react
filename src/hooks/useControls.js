@@ -51,7 +51,7 @@ export const useControls = () => {
     api.velocity.set(directionVector.x, velocity.current[1], directionVector.z);
 
     if (jump && Math.abs(velocity.current[1]) < 0.0001) {
-      api.velocity.set(velocity.current[0], 3, velocity.current[2]);
+      api.velocity.set(velocity.current[0], 3.5, velocity.current[2]);
     }
   });
 
