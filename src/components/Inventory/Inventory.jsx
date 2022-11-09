@@ -8,11 +8,11 @@ import {
   changeSelectedItem,
   inventoryActionTypes,
   MAX_INVENTORY_ITEMS,
-} from "store/slices/inventorySlice";
+} from "store/slices/blocksSlice";
 
 const Inventory = () => {
   const { selectedItem, inventoryItems } = useSelector(
-    (state) => state.inventory
+    (state) => state.blocks.inventory
   );
   const dispatch = useDispatch();
 
