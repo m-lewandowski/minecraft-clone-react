@@ -6,6 +6,7 @@ import Player from "components/Player";
 import Camera from "components/Camera";
 import Blocks from "components/Blocks";
 import Inventory from "components/Inventory";
+import Cursor from "components/Cursor";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         </Physics>
       </Canvas>
       <Inventory />
+      <Cursor />
     </div>
   );
 };
