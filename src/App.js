@@ -5,6 +5,7 @@ import Ground from "components/Ground";
 import Player from "components/Player";
 import Camera from "components/Camera";
 import Blocks from "components/Blocks";
+import Inventory from "components/Inventory";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Ground />
         </Physics>
       </Canvas>
+      <Inventory />
     </div>
   );
 };
