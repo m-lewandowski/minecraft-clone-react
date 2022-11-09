@@ -77,7 +77,7 @@ const Inventory = () => {
         }
       })}
       <div
-        className="absolute top-0 h-full w-16 border-4 border-zinc-400 transition-transform duration-100"
+        className="absolute top-0 h-full w-16 border-4 border-zinc-400 transition-all duration-100"
         style={{ left: `${cursorPosition}%` }}
       ></div>
     </div>

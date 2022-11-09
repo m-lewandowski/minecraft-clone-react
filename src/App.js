@@ -9,7 +9,7 @@ import Inventory from "components/Inventory";
 
 const App = () => {
   return (
-    <div className="h-screen select-none">
+    <div className="fixed h-screen w-screen select-none">
       <Canvas>
         <Sky />
         <Camera />
