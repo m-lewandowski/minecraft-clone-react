@@ -5,10 +5,12 @@ import Ground from "components/Ground";
 import Player from "components/Player";
 import Camera from "components/Camera";
 import Blocks from "components/Blocks";
+import Inventory from "components/Inventory";
+import Cursor from "components/Cursor";
 
 const App = () => {
   return (
-    <div className="h-screen select-none">
+    <div className="fixed h-screen w-screen select-none">
       <Canvas>
         <Sky />
         <Camera />
@@ -18,6 +20,8 @@ const App = () => {
           <Ground />
         </Physics>
       </Canvas>
+      <Inventory />
+      <Cursor />
     </div>
   );
 };
