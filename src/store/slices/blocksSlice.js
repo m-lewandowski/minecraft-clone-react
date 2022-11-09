@@ -24,24 +24,52 @@ export const blocksSlice = createSlice({
   initialState,
   reducers: {
     addBlock: (state, action) => {
+      const { selectedItem, inventoryItems } = state.inventory;
+      const selectedBlock = inventoryItems[selectedItem];
+      if (!selectedBlock || selectedBlock.amount < 1) return state;
+      const blockType = inventoryItems[selectedItem].name;
+      const updatedInventoryItems = [...inventoryItems];
+      updatedInventoryItems[selectedItem] = {
+        ...selectedBlock,
+        amount: selectedBlock.amount - 1,
+      };
       return {
-        ...state,
+        inventory: {
+          selectedItem,
+          inventoryItems: updatedInventoryItems,
+        },
         blocksPositions: [
           ...state.blocksPositions,
           {
             id: nanoid(),
             position: action.payload.position,
-            type: blockTypes.DIRT,
+            type: blockType,
           },
         ],
       };
     },
     removeBlock: (state, action) => {
+      const {
+        blocksPositions,
+        inventory: { inventoryItems, selectedItem },
+      } = state;
+      const { id } = action.payload;
+      const index = state.blocksPositions.findIndex((item) => item.id === id);
+      const blockType = blocksPositions[index].type;
+      const updatedInventoryItems = inventoryItems.map((item) => {
+        if (item.name === blockType) {
+          return { ...item, amount: item.amount + 1 };
+        } else {
+          return item;
+        }
+      });
+
       return {
-        ...state,
-        blocksPositions: [...state.blocksPositions].filter(
-          (item) => item.id !== action.payload.id
-        ),
+        inventory: {
+          selectedItem,
+          inventoryItems: updatedInventoryItems,
+        },
+        blocksPositions: [...blocksPositions].filter((item) => item.id !== id),
       };
     },
     changeSelectedItem: (state, action) => {
